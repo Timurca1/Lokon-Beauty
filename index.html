@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Салон красоты «Локон» в Красноярске — стрижки, окрашивание, маникюр</title>
+<meta name="description" content="Салон красоты «Локон» в центре Красноярска. 9 лет на рынке, 12 000+ клиентов. Стрижки, окрашивание, маникюр, педикюр, ресницы, эпиляция, визаж. Первый визит — скидка 20%.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fdf8f3;
+    --cream-2:#f6ede4;
+    --wine:#7a2e3f;
+    --wine-dark:#5e2130;
+    --gold:#c9a961;
+    --gold-soft:#e6d6ac;
+    --text:#2e2622;
+    --muted:#6b5f55;
+    --white:#ffffff;
+    --radius:20px;
+    --shadow:0 18px 50px -20px rgba(90,40,55,.28);
+    --shadow-sm:0 10px 30px -18px rgba(90,40,55,.35);
+    --font-h:'Playfair Display', Georgia, serif;
+    --font-t:'Inter', -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:var(--font-t);
+    color:var(--text);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  h1,h2,h3,h4{font-family:var(--font-h);font-weight:700;line-height:1.15;margin:0}
+  .container{width:min(1180px,92%);margin:0 auto}
+  .section{padding:88px 0}
+  .eyebrow{
+    font-family:var(--font-t);
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:14px;
+  }
+  .section-title{font-size:clamp(28px,4vw,46px);color:var(--wine);margin-bottom:16px}
+  .section-sub{color:var(--muted);max-width:620px;font-size:17px}
+  .section-head{margin-bottom:52px}
+  .center{text-align:center;margin-left:auto;margin-right:auto}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    padding:15px 30px;border-radius:50px;font-weight:600;font-size:15.5px;
+    cursor:pointer;border:2px solid transparent;transition:.25s ease;
+    font-family:var(--font-t);white-space:nowrap;
+  }
+  .btn-primary{background:var(--wine);color:#fff}
+  .btn-primary:hover{background:var(--wine-dark);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+  .btn-gold{background:var(--gold);color:#3a2c17}
+  .btn-gold:hover{background:#bd9b4f;transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+  .btn-ghost{background:transparent;border-color:var(--gold);color:var(--wine)}
+  .btn-ghost:hover{background:var(--gold);color:#3a2c17}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:60;background:rgba(253,248,243,.92);
+    backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,97,.25);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:var(--font-h);font-size:27px;font-weight:800;color:var(--wine)}
+  .logo-mark{
+    width:42px;height:42px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg,var(--wine),var(--gold));
+    display:flex;align-items:center;justify-content:center;color:#fff;
+    font-family:var(--font-h);font-size:22px;font-weight:700;
+  }
+  .nav-links{display:flex;gap:26px;font-size:15px;font-weight:500;color:var(--muted)}
+  .nav-links a{transition:.2s;position:relative}
+  .nav-links a:hover{color:var(--wine)}
+  .nav-right{display:flex;align-items:center;gap:18px}
+  .nav-phone{font-weight:700;color:var(--wine);font-size:15.5px;white-space:nowrap}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+  .burger span{width:26px;height:2px;background:var(--wine);display:block;border-radius:2px}
+
+  /* Hero */
+  .hero{padding:70px 0 60px;background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(201,169,97,.18), transparent 60%),
+    var(--cream)}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(34px,4.6vw,58px);color:var(--wine);margin-bottom:20px}
+  .hero-badge{
+    display:inline-block;background:rgba(201,169,97,.16);color:var(--wine);
+    border:1px solid rgba(201,169,97,.5);border-radius:50px;
+    padding:8px 18px;font-size:14px;font-weight:600;margin-bottom:22px;
+  }
+  .hero p.lead{font-size:18px;color:var(--muted);margin:0 0 30px;max-width:540px}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+  .hero-photo{
+    position:relative;border-radius:26px;overflow:hidden;
+    box-shadow:var(--shadow);aspect-ratio:4/5;
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .hero-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 55%,rgba(90,33,48,.35));
+  }
+  .hero-tag{
+    position:absolute;left:20px;bottom:20px;right:20px;z-index:2;color:#fff;
+    font-family:var(--font-h);font-size:19px;
+  }
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .stat-num{font-family:var(--font-h);font-size:clamp(26px,3vw,38px);color:var(--wine);font-weight:800;line-height:1}
+  .stat-label{font-size:14px;color:var(--muted);margin-top:6px}
+
+  /* Calculator */
+  .calculator{background:linear-gradient(180deg,var(--cream-2),var(--cream))}
+  .calc{
+    background:#fff;border-radius:26px;padding:38px;box-shadow:var(--shadow);
+    display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:stretch;
+    border:1px solid rgba(201,169,97,.28);overflow:hidden;
+  }
+  .calc-fields{display:grid;gap:22px;min-width:0}
+  .field label{display:block;font-size:13.5px;font-weight:600;color:var(--muted);margin-bottom:8px;letter-spacing:.02em}
+  .field select,.field input{
+    width:100%;padding:15px 16px;border-radius:14px;border:1.5px solid #e4d8c9;
+    background:var(--cream);font-family:var(--font-t);font-size:15.5px;color:var(--text);
+    transition:.2s;
+  }
+  .field select:focus,.field input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,169,97,.16)}
+  .calc-result{
+    background:var(--wine);color:#fff;border-radius:20px;padding:32px;
+    display:flex;flex-direction:column;justify-content:center;min-width:0;
+  }
+  .calc-result .label{font-size:14px;opacity:.82;letter-spacing:.04em;margin-bottom:6px}
+  .calc-result .price{
+    font-family:var(--font-h);font-weight:800;color:#fff;
+    font-size:clamp(26px,7vw,42px);line-height:1.05;word-break:break-word;
+  }
+  .calc-result .price .cur{color:var(--gold-soft)}
+  .calc-result .note{font-size:13.5px;opacity:.8;margin-top:14px}
+  .calc-result .btn{margin-top:22px;width:100%}
+
+  /* Services */
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .card{
+    background:#fff;border-radius:var(--radius);padding:28px;border:1px solid rgba(201,169,97,.25);
+    transition:.3s;display:flex;flex-direction:column;gap:12px;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold)}
+  .card-icon{
+    width:54px;height:54px;border-radius:16px;background:rgba(201,169,97,.16);
+    display:flex;align-items:center;justify-content:center;font-size:26px;
+  }
+  .card h3{font-size:20px;color:var(--wine)}
+  .card p{color:var(--muted);font-size:14.5px;margin:0;flex:1}
+  .card .price-tag{
+    font-family:var(--font-h);font-size:22px;font-weight:700;color:var(--wine);margin-top:4px;
+  }
+  .card .price-tag small{font-family:var(--font-t);font-size:13px;color:var(--muted);font-weight:500}
+
+  /* Masters */
+  .masters{background:linear-gradient(180deg,var(--cream),var(--cream-2))}
+  .masters-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+  .doc{
+    background:#fff;border-radius:var(--radius);overflow:hidden;display:flex;
+    flex-direction:column;height:100%;box-shadow:var(--shadow-sm);
+    transition:.3s;border:1px solid rgba(201,169,97,.22);
+  }
+  .doc:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .doc-photo{aspect-ratio:1/1;overflow:hidden;flex-shrink:0;position:relative;background:var(--cream-2)}
+  .doc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+  .doc-body{flex:1;display:flex;flex-direction:column;padding:22px}
+  .doc-body h3{font-size:20px;color:var(--wine);margin-bottom:5px}
+  .doc-role{color:var(--gold);font-weight:600;font-size:13.5px;letter-spacing:.03em}
+  .doc-info{margin-top:auto;padding-top:16px}
+  .doc-years{font-size:14px;color:var(--muted)}
+  .doc-spec{
+    margin-top:12px;font-size:13.5px;color:var(--text);font-weight:500;
+    background:var(--cream-2);border-radius:12px;padding:10px 13px;
+  }
+
+  /* Gallery */
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery-grid a{
+  display:block;aspect-ratio:3/4;overflow:hidden;border-radius:16px;
+  position:relative;background:var(--cream-2);
+}
+.gallery-grid img{
+  width:100%;height:100%;object-fit:cover;
+  object-position:center center;
+  transition:.5s ease;display:block;
+}
+  .gallery-grid a:hover img{transform:scale(1.08)}
+  .gallery-grid a::after{
+    content:"";position:absolute;inset:0;background:rgba(122,46,63,0);
+    transition:.3s;
+  }
+  .gallery-grid a:hover::after{background:rgba(122,46,63,.18)}
+
+  /* Promos */
+  .promos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .promo{
+    border-radius:var(--radius);padding:36px 32px;color:#fff;position:relative;overflow:hidden;
+    min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;
+  }
+  .promo:nth-child(1){background:linear-gradient(150deg,#7a2e3f,#9c4256)}
+  .promo:nth-child(2){background:linear-gradient(150deg,#c9a961,#a9873f)}
+  .promo:nth-child(3){background:linear-gradient(150deg,#5e2130,#7a2e3f)}
+  .promo h3{font-size:24px;margin-bottom:10px;position:relative;z-index:2}
+  .promo p{font-size:15px;margin:0;opacity:.92;position:relative;z-index:2}
+  .promo .promo-badge{
+    position:absolute;top:24px;right:24px;background:rgba(255,255,255,.18);
+    border-radius:50px;padding:6px 16px;font-size:13px;font-weight:600;z-index:2;
+    border:1px solid rgba(255,255,255,.35);
+  }
+  .promo::before{
+    content:"";position:absolute;width:220px;height:220px;border-radius:50%;
+    background:rgba(255,255,255,.07);top:-80px;left:-60px;
+  }
+
+  /* Reviews */
+  .reviews{background:var(--cream-2)}
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .review{
+    background:#fff;border-radius:var(--radius);padding:30px;border:1px solid rgba(201,169,97,.25);
+    display:flex;flex-direction:column;gap:14px;height:100%;
+  }
+  .review .stars{color:var(--gold);font-size:17px;letter-spacing:2px}
+  .review blockquote{margin:0;font-size:15.5px;color:var(--text);line-height:1.65}
+  .review .author{display:flex;align-items:center;gap:13px;margin-top:auto;padding-top:12px}
+  .review .ava{
+    width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--wine),var(--gold));
+    color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);
+    font-size:19px;font-weight:700;flex-shrink:0;
+  }
+  .review .author .name{font-weight:600;color:var(--wine);font-size:15px}
+  .review .author .meta{font-size:13px;color:var(--muted)}
+
+  /* Steps */
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;counter-reset:step}
+  .step{text-align:center;position:relative}
+  .step-num{
+    width:76px;height:76px;border-radius:50%;margin:0 auto 22px;
+    background:#fff;border:2px solid var(--gold);color:var(--wine);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-h);font-size:30px;font-weight:800;
+    box-shadow:var(--shadow-sm);position:relative;
+  }
+  .step h3{font-size:22px;color:var(--wine);margin-bottom:10px}
+  .step p{color:var(--muted);font-size:15px;margin:0;max-width:300px;margin-inline:auto}
+  .step:not(:last-child)::after{
+    content:"";position:absolute;top:38px;right:-16%;width:32%;height:2px;
+    background:repeating-linear-gradient(90deg,var(--gold) 0 8px,transparent 8px 16px);
+  }
+
+  /* Booking form */
+  .booking{background:linear-gradient(160deg,#7a2e3f,#5e2130);color:#fff}
+  .booking .section-title{color:#fff}
+  .booking .section-sub{color:rgba(255,255,255,.82)}
+  .booking-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:start}
+  .booking-info{display:flex;flex-direction:column;gap:22px}
+  .booking-fact{display:flex;gap:16px;align-items:flex-start}
+  .booking-fact .ic{
+    width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.12);
+    display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;
+  }
+  .booking-fact .t{font-weight:600;font-size:16px}
+  .booking-fact .d{font-size:14px;opacity:.82}
+  .form-card{background:var(--cream);border-radius:24px;padding:36px;color:var(--text)}
+  .form-card h3{font-size:24px;color:var(--wine);margin-bottom:6px}
+  .form-card .fc-sub{color:var(--muted);font-size:14.5px;margin-bottom:24px}
+  .form-row{display:grid;gap:16px;margin-bottom:16px}
+  .form-row.two{grid-template-columns:1fr 1fr}
+  .form-msg{font-size:14px;margin-top:6px;display:none}
+  .form-msg.err{color:#c0392b;display:block}
+  .form-msg.ok{color:#1f8a4c;display:block;font-size:15px}
+  .form-success{
+    display:none;text-align:center;padding:14px 0;
+  }
+  .form-success .big{font-size:46px;margin-bottom:10px}
+  .form-success h3{color:var(--wine);margin-bottom:8px}
+
+  /* Footer */
+  footer{background:#3a2028;color:rgba(255,255,255,.8);padding:64px 0 30px}
+  .footer-grid{display:grid;grid-template-columns:1.1fr 1fr 1.4fr;gap:44px;margin-bottom:44px}
+  footer .logo{color:#fff;margin-bottom:16px}
+  footer .logo-mark{background:linear-gradient(135deg,var(--gold),var(--wine))}
+  .footer-text{font-size:14.5px;line-height:1.7;max-width:320px}
+  .footer-title{font-family:var(--font-h);font-size:19px;color:#fff;margin-bottom:16px}
+  .footer-list{list-style:none;padding:0;margin:0;display:grid;gap:11px;font-size:15px}
+  .footer-list a:hover{color:var(--gold)}
+  .footer-list .ic{color:var(--gold);margin-right:8px}
+  .map-frame{border-radius:16px;overflow:hidden;border:2px solid rgba(201,169,97,.35);height:220px}
+  .map-frame iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.2) contrast(1.05)}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.12);padding-top:24px;
+    display:flex;justify-content:space-between;gap:16px;font-size:13.5px;flex-wrap:wrap;
+    color:rgba(255,255,255,.6);
+  }
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(34px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.visible{opacity:1;transform:none}
+
+  /* Responsive 768 */
+  @media (max-width:768px){
+    .section{padding:58px 0}
+    .nav-links{display:none}
+    .burger{display:flex}
+    .nav-phone{display:none}
+    .nav-links.open{
+      display:flex;flex-direction:column;position:absolute;top:78px;left:0;right:0;
+      background:var(--cream);padding:22px 6%;gap:18px;border-bottom:1px solid rgba(201,169,97,.3);
+      box-shadow:var(--shadow);
+    }
+    .hero{padding:44px 0 40px}
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .hero-photo{aspect-ratio:16/12}
+    .stats{gap:14px}
+    .calc{grid-template-columns:1fr;padding:26px;gap:24px}
+    .services-grid{grid-template-columns:repeat(2,1fr)}
+    .masters-grid{grid-template-columns:repeat(2,1fr)}
+    .gallery-grid{grid-template-columns:repeat(2,1fr)}
+    .promos-grid{grid-template-columns:1fr}
+    .reviews-grid{grid-template-columns:1fr}
+    .steps-grid{grid-template-columns:1fr;gap:44px}
+    .step:not(:last-child)::after{display:none}
+    .booking-grid{grid-template-columns:1fr;gap:34px}
+    .form-card{padding:26px}
+    .footer-grid{grid-template-columns:1fr;gap:34px}
+  }
+  /* Responsive 480 */
+  @media (max-width:480px){
+    .section-title{font-size:27px}
+    .hero h1{font-size:31px}
+    .hero-btns .btn{width:100%}
+    .stats{grid-template-columns:1fr;gap:18px;text-align:center}
+    .services-grid{grid-template-columns:1fr}
+    .masters-grid{grid-template-columns:1fr}
+    .gallery-grid{grid-template-columns:1fr 1fr;gap:10px}
+    .calc-result{padding:24px}
+    .form-row.two{grid-template-columns:1fr}
+    .form-card{padding:22px}
+    .footer-bottom{flex-direction:column;gap:8px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+    <a href="#top" class="logo"><span class="logo-mark">Л</span> Локон</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#calc">Калькулятор</a>
+      <a href="#services">Услуги</a>
+      <a href="#masters">Мастера</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#promos">Акции</a>
+      <a href="#booking">Записаться</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+73915553322">+7 (391) 555-33-22</a>
+      <a class="btn btn-primary" href="#booking">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <span class="hero-badge">Салон красоты в центре Красноярска</span>
+        <h1>Красота, которая работает на вас. Первый визит&nbsp;— скидка&nbsp;20%</h1>
+        <p class="lead">Стрижки, сложное окрашивание, маникюр и уход за лицом от мастеров с профильным образованием. Приходите за результатом, который держится неделями, а не до первого дождя.</p>
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="#booking">Записаться онлайн</a>
+          <a class="btn btn-ghost" href="#calc">Рассчитать стоимость</a>
+        </div>
+        <div class="stats">
+          <div>
+            <div class="stat-num">9</div>
+            <div class="stat-label">лет на рынке Красноярска</div>
+          </div>
+          <div>
+            <div class="stat-num">12 000+</div>
+            <div class="stat-label">довольных клиентов</div>
+          </div>
+          <div>
+            <div class="stat-num">9</div>
+            <div class="stat-label">мастеров в команде</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-photo reveal">
+        <img src="images/orig.webp" alt="Интерьер салона красоты «Локон»" loading="eager">
+        <div class="hero-tag">Салон «Локон» — ул. Ленина, 12, Красноярск</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="section calculator" id="calc">
+    <div class="container">
+      <div class="section-head center" style="text-align:center">
+        <div class="eyebrow">Калькулятор стоимости</div>
+        <h2 class="section-title">Узнайте цену за 5 секунд</h2>
+        <p class="section-sub center">Выберите услугу и уровень мастера — покажем примерную стоимость. Точную сумму подтвердим при записи.</p>
+      </div>
+      <div class="calc reveal">
+        <div class="calc-fields">
+          <div class="field">
+            <label for="calcService">Услуга</label>
+            <select id="calcService">
+              <option value="2500">Стрижка женская</option>
+              <option value="5500">Окрашивание</option>
+              <option value="1800">Маникюр с покрытием</option>
+              <option value="2200">Педикюр</option>
+              <option value="3500">Наращивание ресниц</option>
+              <option value="1500">Эпиляция</option>
+              <option value="3000">Визаж</option>
+              <option value="4000">Уход за лицом</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="calcMaster">Мастер</label>
+            <select id="calcMaster">
+              <option value="1">Любой мастер</option>
+              <option value="1.4">Топ-мастер (+40%)</option>
+              <option value="0.8">Начинающий мастер (−20%)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div class="label">Примерная стоимость</div>
+          <div class="price" id="calcPrice">от 2 500 <span class="cur">₽</span></div>
+          <div class="note">Итоговая цена зависит от длины волос, объёма работы и материалов и подтверждается мастером на консультации.</div>
+          <a class="btn btn-gold" href="#booking">Записаться на услугу</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Что мы делаем</div>
+        <h2 class="section-title">Услуги и цены</h2>
+        <p class="section-sub">Прозрачные цены «от» — стоимость материалов и объём работы мастер назовёт до начала процедуры.</p>
+      </div>
+      <div class="services-grid">
+        <article class="card reveal">
+          <div class="card-icon">✂️</div>
+          <h3>Стрижка женская</h3>
+          <p>Форма и укладка с учётом типа волос и формы лица. Мытьё, уход и рекомендации по домашнему стайлингу в подарок.</p>
+          <div class="price-tag">от 2 500 ₽ <small>· ~60 мин</small></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">🎨</div>
+          <h3>Окрашивание</h3>
+          <p>Однотонное, тонирование, растяжка и блики. Работаем на профессиональных красителях с щадящей формулой.</p>
+          <div class="price-tag">от 5 500 ₽ <small>· от 2 ч</small></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">💅</div>
+          <h3>Маникюр с покрытием</h3>
+          <p>Аппаратный маникюр, выравнивание и стойкое гель-лаковое покрытие. Стерильные инструменты для каждого клиента.</p>
+          <div class="price-tag">от 1 800 ₽ <small>· ~90 мин</small></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">🦶</div>
+          <h3>Педикюр</h3>
+          <p>Аппаратная обработка стоп и ногтей, уход за кутикулой и натоптышами, покрытие гель-лаком на выбор.</p>
+          <div class="price-tag">от 2 200 ₽ <small>· ~90 мин</small></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">👁️</div>
+          <h3>Наращивание ресниц</h3>
+          <p>Классика, 2D и объёмные эффекты. Подбираем изгиб и длину под разрез глаз — эффект до 4 недель.</p>
+          <div class="price-tag">от 3 500 ₽ <small>· ~2 ч</small></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">🌿</div>
+          <h3>Эпиляция</h3>
+          <p>Восковая и полимерная эпиляция зон лица и тела. Гипоаллергенные материалы и мягкое завершение процедуры.</p>
+          <div class="price-tag">от 1 500 ₽ <small>· 20–40 мин</small></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">💄</div>
+          <h3>Визаж</h3>
+          <p>Дневной, вечерний и свадебный макияж, включая работу над стойкостью под фотографии и торжество.</p>
+          <div class="price-tag">от 3 000 ₽ <small>· ~60 мин</small></div>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">✨</div>
+          <h3>Уход за лицом</h3>
+          <p>Чистки, пилинги и увлажняющие процедуры по типу кожи. Подбор домашнего ухода после сеанса.</p>
+          <div class="price-tag">от 4 000 ₽ <small>· ~75 мин</small></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MASTERS -->
+  <section class="section masters" id="masters">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Команда «Локона»</div>
+        <h2 class="section-title">Наши мастера</h2>
+        <p class="section-sub">Каждый специалист регулярно проходит обучение и работает по протоколам безопасности и стерильности.</p>
+      </div>
+      <div class="masters-grid">
+        <article class="doc reveal">
+          <div class="doc-photo"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Анна Смирнова — топ-стилист салона «Локон»" loading="lazy"></div>
+          <div class="doc-body">
+            <h3>Анна Смирнова</h3>
+            <div class="doc-role">Топ-стилист</div>
+            <div class="doc-info">
+              <div class="doc-years">Стаж 9 лет · Красноярск</div>
+              <div class="doc-spec">Стрижки и укладки</div>
+            </div>
+          </div>
+        </article>
+        <article class="doc reveal">
+          <div class="doc-photo"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Мария Иванова — колорист салона «Локон»" loading="lazy"></div>
+          <div class="doc-body">
+            <h3>Мария Иванова</h3>
+            <div class="doc-role">Колорист</div>
+            <div class="doc-info">
+              <div class="doc-years">Стаж 7 лет · Красноярск</div>
+              <div class="doc-spec">Сложное окрашивание</div>
+            </div>
+          </div>
+        </article>
+        <article class="doc reveal">
+          <div class="doc-photo"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Екатерина Петрова — мастер маникюра" loading="lazy"></div>
+          <div class="doc-body">
+            <h3>Екатерина Петрова</h3>
+            <div class="doc-role">Мастер маникюра</div>
+            <div class="doc-info">
+              <div class="doc-years">Стаж 5 лет · Красноярск</div>
+              <div class="doc-spec">Маникюр и педикюр</div>
+            </div>
+          </div>
+        </article>
+        <article class="doc reveal">
+          <div class="doc-photo"><img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Ольга Кузнецова — лешмейкер" loading="lazy"></div>
+          <div class="doc-body">
+            <h3>Ольга Кузнецова</h3>
+            <div class="doc-role">Лешмейкер</div>
+            <div class="doc-info">
+              <div class="doc-years">Стаж 6 лет · Красноярск</div>
+              <div class="doc-spec">Наращивание и ламинирование ресниц</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Портфолио</div>
+        <h2 class="section-title">Галерея работ</h2>
+        <p class="section-sub">Реальные результаты наших мастеров: причёски, окрашивание, маникюр и макияж.</p>
+      </div>
+      <div class="gallery-grid">
+        <a href="#gallery" class="reveal"><img src="images/sekrety-modnoy-strizhki.jpg" alt="Женская стрижка и укладка" loading="lazy"></a>
+        <a href="#gallery" class="reveal"><img src="images/42cea405abc60280edf6e1df8717f390.jpg" alt="Макияж для торжества" loading="lazy"></a>
+        <a href="#gallery" class="reveal"><img src="images/e85e3a790681fb5129df11255b6f0741.jpg" alt="Маникюр с дизайном" loading="lazy"></a>
+        <a href="#gallery" class="reveal"><img src="images/egpgMmxnrXnxRcQDoJcg.jpg" alt="Стойкое покрытие ногтей" loading="lazy"></a>
+        <a href="#gallery" class="reveal"><img src="images/diploma.webp" alt="Наращивание ресниц" loading="lazy"></a>
+        <a href="#gallery" class="reveal"><img src="images/gt3kx6fd1fmaash78hscsd3afoe5ji4w.png" alt="Вечерний образ" loading="lazy"></a>
+        <a href="#gallery" class="reveal"><img src="images/KLS_000002_06090_1_t222_150229.jpg" alt="Уход за волосами" loading="lazy"></a>
+        <a href="#gallery" class="reveal"><img src="images/b5f8f12e83f0a540ee1f0f96c1a0547c.webp" alt="Причёска на праздник" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMOS -->
+  <section class="section" id="promos" style="background:var(--cream-2)">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Выгодно</div>
+        <h2 class="section-title">Действующие акции</h2>
+        <p class="section-sub">Предложения суммируются со стандартным прайсом салона. Уточните условия у администратора при записи.</p>
+      </div>
+      <div class="promos-grid">
+        <article class="promo reveal">
+          <span class="promo-badge">−20%</span>
+          <h3>Первый визит</h3>
+          <p>Скидка 20% на любую услугу для новых клиентов салона «Локон».</p>
+        </article>
+        <article class="promo reveal">
+          <span class="promo-badge">Комплекс</span>
+          <h3>Маникюр + педикюр</h3>
+          <p>Всего 3 500 ₽ вместо 4 000 ₽ при записи на комплекс за один приём.</p>
+        </article>
+        <article class="promo reveal">
+          <span class="promo-badge">−15%</span>
+          <h3>Приведи подругу</h3>
+          <p>Обеим скидка 15% на любой услуге в один день визита.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Отзывы клиентов</div>
+        <h2 class="section-title">Что о нас говорят</h2>
+        <p class="section-sub">Собрали отзывы клиентов Красноярска за последний год — с указанием мастеров и услуг.</p>
+      </div>
+      <div class="reviews-grid">
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>Анна сделала стрижку, которую я искала годами. Волосы наконец лежат так, как надо, укладка держится два дня. Записалась на окрашивание к Марии по совету Анны.</blockquote>
+          <div class="author">
+            <div class="ava">Е</div>
+            <div><div class="name">Елена В.</div><div class="meta">Стрижка у Анны Смирновой</div></div>
+          </div>
+        </article>
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>Мария вытянула мой неудачный блонд до идеального холодного оттенка. Никакой желтизны, волосы живые. Колорист от Бога, другим мастерам больше не доверяю.</blockquote>
+          <div class="author">
+            <div class="ava">К</div>
+            <div><div class="name">Ксения А.</div><div class="meta">Окрашивание у Марии Ивановой</div></div>
+          </div>
+        </article>
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>Хожу к Екатерине на маникюр уже второй год. Всегда чисто, аккуратно и в срок. Покрытие держится три недели без сколов, даже с моей работой руками.</blockquote>
+          <div class="author">
+            <div class="ava">О</div>
+            <div><div class="name">Ольга Д.</div><div class="meta">Маникюр у Екатерины Петровой</div></div>
+          </div>
+        </article>
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>Ольга сделала ресницы к свадьбе: естественно и не тяжело. Продержались почти месяц, на фото выглядели потрясающе. Теперь хожу только к ней.</blockquote>
+          <div class="author">
+            <div class="ava">Д</div>
+            <div><div class="name">Дарья М.</div><div class="meta">Наращивание ресниц у Ольги Кузнецовой</div></div>
+          </div>
+        </article>
+        <article class="review reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>Записалась через сайт вечером — на следующий день уже было время. Сделала комплекс маникюр и педикюр со скидкой, вышло дешевле, чем в соседнем салоне за один. Спасибо!</blockquote>
+          <div class="author">
+            <div class="ava">И</div>
+            <div><div class="name">Ирина С.</div><div class="meta">Маникюр + педикюр, комплекс</div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section-head center" style="text-align:center">
+        <div class="eyebrow">Всё просто</div>
+        <h2 class="section-title">Как записаться</h2>
+        <p class="section-sub center">Три шага от заявки до идеального результата. Администратор перезвонит в течение 15 минут.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <h3>Оставьте заявку</h3>
+          <p>Заполните форму на сайте или позвоните по телефону +7 (391) 555-33-22.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">2</div>
+          <h3>Подберём время</h3>
+          <p>Администратор уточнит услугу и мастера, предложит удобные слоты и подтвердит запись.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">3</div>
+          <h3>Приходите</h3>
+          <p>Ждём вас по адресу ул. Ленина, 12. Возьмите с собой хорошее настроение — остальное сделаем мы.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="section booking" id="booking">
+    <div class="container booking-grid">
+      <div class="booking-info reveal">
+        <div class="eyebrow">Онлайн-запись</div>
+        <h2 class="section-title">Запишитесь в «Локон»</h2>
+        <p class="section-sub" style="margin-bottom:8px">Оставьте заявку — администратор свяжется с вами, чтобы подтвердить дату и время.</p>
+        <div class="booking-fact">
+          <div class="ic">📞</div>
+          <div><div class="t">+7 (391) 555-33-22</div><div class="d">Ежедневно с 9:00 до 21:00</div></div>
+        </div>
+        <div class="booking-fact">
+          <div class="ic">📍</div>
+          <div><div class="t">г. Красноярск, ул. Ленина, 12</div><div class="d">5 минут от площади Революции</div></div>
+        </div>
+        <div class="booking-fact">
+          <div class="ic">🎁</div>
+          <div><div class="t">Первый визит — скидка 20%</div><div class="d">Запомним вас и предложим выгодные акции</div></div>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <form id="bookingForm" action="https://formspree.io/f/placeholder" method="POST" novalidate>
+          <h3>Оставить заявку</h3>
+          <p class="fc-sub">Заполните данные — перезвоним в течение 15 минут в рабочие часы.</p>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Ваше имя</label>
+              <input id="name" name="name" type="text" placeholder="Например, Анна" autocomplete="name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="phone">Телефон</label>
+              <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" inputmode="tel">
+            </div>
+          </div>
+          <div class="form-row two">
+            <div class="field">
+              <label for="service">Услуга</label>
+              <select id="service" name="service">
+                <option>Стрижка женская</option>
+                <option>Окрашивание</option>
+                <option>Маникюр с покрытием</option>
+                <option>Педикюр</option>
+                <option>Наращивание ресниц</option>
+                <option>Эпиляция</option>
+                <option>Визаж</option>
+                <option>Уход за лицом</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="master">Мастер</label>
+              <select id="master" name="master">
+                <option>Любой мастер</option>
+                <option>Анна Смирнова</option>
+                <option>Мария Иванова</option>
+                <option>Екатерина Петрова</option>
+                <option>Ольга Кузнецова</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-msg" id="formMsg"></div>
+          <button class="btn btn-primary" type="submit" style="width:100%;margin-top:6px">Записаться</button>
+          <p style="font-size:12.5px;color:var(--muted);margin:14px 0 0;text-align:center">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="big">💐</div>
+          <h3>Заявка принята!</h3>
+          <p style="color:var(--muted)">Спасибо, <b id="okName">гость</b>! Мы перезвоним вам в течение 15 минут и подтвердим запись на выбранную услугу.</p>
+          <button class="btn btn-ghost" type="button" id="resetForm" style="margin-top:10px">Оставить ещё одну заявку</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><span class="logo-mark">Л</span> Локон</div>
+        <p class="footer-text">Салон красоты «Локон» — команда мастеров в центре Красноярска. Работаем с 2016 года и делаем красоту, которая держится.</p>
+      </div>
+      <div>
+        <div class="footer-title">Навигация</div>
+        <ul class="footer-list">
+          <li><a href="#calc">Калькулятор</a></li>
+          <li><a href="#services">Услуги и цены</a></li>
+          <li><a href="#masters">Мастера</a></li>
+          <li><a href="#gallery">Галерея работ</a></li>
+          <li><a href="#promos">Акции</a></li>
+          <li><a href="#booking">Онлайн-запись</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Контакты и адрес</div>
+        <ul class="footer-list" style="margin-bottom:18px">
+          <li><span class="ic">📍</span> г. Красноярск, ул. Ленина, 12</li>
+          <li><span class="ic">📞</span> <a href="tel:+73915553322">+7 (391) 555-33-22</a></li>
+          <li><span class="ic">🕘</span> Ежедневно с 9:00 до 21:00</li>
+          <li><span class="ic">✉️</span> <a href="mailto:hello@salon-lokon.ru">hello@salon-lokon.ru</a></li>
+        </ul>
+        <div class="map-frame">
+          <iframe title="Карта: салон красоты «Локон», Красноярск, ул. Ленина, 12"
+            src="https://yandex.ru/map-widget/v1/?text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D1%8F%D1%80%D1%81%D0%BA%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0%2C%2012&z=16"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2016–2026 Салон красоты «Локон», Красноярск. Все права защищены.</span>
+      <span>Работаем ежедневно 9:00–21:00 · ул. Ленина, 12</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ===== Calculator ===== */
+  (function(){
+    var service = document.getElementById('calcService');
+    var master = document.getElementById('calcMaster');
+    var price = document.getElementById('calcPrice');
+
+    function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+
+    function update(){
+      var base = parseInt(service.value, 10) || 0;
+      var k = parseFloat(master.value) || 1;
+      var total = Math.round(base * k / 10) * 10; /* округляем до 10 ₽ */
+      price.innerHTML = 'от ' + fmt(total) + ' <span class="cur">₽</span>';
+    }
+    service.addEventListener('change', update);
+    master.addEventListener('change', update);
+    update();
+  })();
+
+  /* ===== Phone mask ===== */
+  (function(){
+    var phone = document.getElementById('phone');
+    function mask(v){
+      var d = v.replace(/\D/g, '');
+      if(!d) return '';
+      if(d[0] === '8') d = '7' + d.slice(1);
+      if(d[0] !== '7') d = '7' + d;
+      d = d.slice(0, 11);
+      var out = '+7';
+      if(d.length > 1) out += ' (' + d.slice(1,4);
+      if(d.length >= 4) out += ') ' + d.slice(4,7);
+      if(d.length >= 7) out += '-' + d.slice(7,9);
+      if(d.length >= 9) out += '-' + d.slice(9,11);
+      return out;
+    }
+    phone.addEventListener('input', function(){ phone.value = mask(phone.value); });
+    phone.addEventListener('focus', function(){ if(!phone.value) phone.value = '+7 ('; });
+    phone.addEventListener('blur', function(){ if(phone.value === '+7 (') phone.value = ''; });
+  })();
+
+  /* ===== Form validation + demo submit ===== */
+  (function(){
+    var form = document.getElementById('bookingForm');
+    var name = document.getElementById('name');
+    var phone = document.getElementById('phone');
+    var msg = document.getElementById('formMsg');
+    var success = document.getElementById('formSuccess');
+    var okName = document.getElementById('okName');
+
+    function showMsg(text, type){
+      msg.textContent = text;
+      msg.className = 'form-msg ' + type;
+    }
+
+    form.addEventListener('submit', function(e){
+      var nameVal = name.value.trim();
+      var digits = phone.value.replace(/\D/g, '');
+
+      if(nameVal.length < 2){
+        e.preventDefault();
+        showMsg('Пожалуйста, укажите имя (минимум 2 символа).', 'err');
+        name.focus();
+        return;
+      }
+      if(digits.length !== 11){
+        e.preventDefault();
+        showMsg('Введите телефон полностью: +7 (___) ___-__-__', 'err');
+        phone.focus();
+        return;
+      }
+
+      /* Если action не настроен (placeholder) — демо-успех без отправки */
+      if(form.getAttribute('action').indexOf('placeholder') !== -1){
+        e.preventDefault();
+        okName.textContent = nameVal;
+        form.style.display = 'none';
+        success.style.display = 'block';
+        success.scrollIntoView({behavior:'smooth', block:'center'});
+        return;
+      }
+      showMsg('Отправляем заявку…', 'ok');
+    });
+
+    document.getElementById('resetForm').addEventListener('click', function(){
+      form.reset();
+      msg.className = 'form-msg';
+      msg.textContent = '';
+      form.style.display = 'block';
+      success.style.display = 'none';
+    });
+  })();
+
+  /* ===== Burger menu ===== */
+  (function(){
+    var burger = document.getElementById('burger');
+    var links = document.getElementById('navLinks');
+    burger.addEventListener('click', function(){ links.classList.toggle('open'); });
+    links.addEventListener('click', function(e){
+      if(e.target.tagName === 'A') links.classList.remove('open');
+    });
+  })();
+
+  /* ===== Scroll reveal ===== */
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var siblings = Array.prototype.slice.call(
+            en.target.parentElement.querySelectorAll('.reveal'));
+          var idx = siblings.indexOf(en.target);
+          en.target.style.transitionDelay = (Math.max(0, idx % 4) * 80) + 'ms';
+          en.target.classList.add('visible');
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>
